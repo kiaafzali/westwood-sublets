@@ -21,10 +21,10 @@ export default class Listing extends Component {
                         <h1>Picture Goes Here</h1>
                     </Grid>
                     <Grid item align="left" xs={4}>
-                        <h3>Address</h3>
+                        <h3>{this.props.address}</h3>
                     </Grid>
                     <Grid item align="right" xs={4}>
-                        <h3>$$$</h3>
+                        <h3>${this.props.price}</h3>
                     </Grid>
                 </Grid>
             </Card>

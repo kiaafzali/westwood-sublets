@@ -18,11 +18,10 @@ def generate_unique_code():
 class House(models.Model):
     code = models.CharField(max_length=10, default="", unique=True)
     owner = models.CharField(max_length=50, unique=True)
-    address_house_numer = models.CharField(max_length=10)
-    address_street_name = models.CharField(max_length=50)
+    address_street = models.CharField(max_length=50)
     address_city = models.CharField(null=False, max_length=20, default="Los Angeles")
     address_state = models.CharField(null=False, max_length=2, default="CA")
-    address_zip_code = models.CharField(null=False, max_length=5, default="90024")
+    address_zip = models.CharField(null=False, max_length=5, default="90024")
     price = models.IntegerField(null=False, default=1)
     created_at = models.DateTimeField(auto_now_add=True)
 
