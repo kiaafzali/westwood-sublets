@@ -18,3 +18,8 @@ html, body{
     width: 100%;
     display:flex; 
 }
+
+.listing-price{
+    background-color: aqua;
+    text-align: right;
+}
