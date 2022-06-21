@@ -12,8 +12,18 @@ export default class HomePage extends Component {
         this.state = 
         {
             listings : [],
+            price_decending: false,
         }
+
+        this.handlePriceChange = this.handlePriceChange.bind(this)
         
+    }
+
+    handlePriceChange() {
+        this.setState({
+            price_decending: !this.state.price_decending,
+            listings: this.state.listings.reverse(),
+        })
     }
 
     async componentDidMount() {
@@ -42,11 +52,16 @@ export default class HomePage extends Component {
     render(){ 
         return(
             <Grid container spacing={5}>
-            {this.state.listings.map(listing => {
-                return (
-                    <Grid item xs={3} ><Listing address={listing.address} price={listing.price}/></Grid>
-                )
-            })}
+                <Grid item xs={12} alignItems="center">
+                    <Button onClick={this.handlePriceChange}>
+                        <div>{this.state.price_decending ? <h1>decending</h1> : <h1>acending</h1>}</div>
+                    </Button>
+                </Grid>
+                {this.state.listings.map(listing => {
+                    return (
+                        <Grid item xs={3} ><Listing address={listing.address} price={listing.price}/></Grid>
+                    )
+                })}
             </Grid>
         );
     }
